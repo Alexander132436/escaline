@@ -1,0 +1,12 @@
+.header-container{
+    max-width: 1090px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px; /* Отступ между верхней строкой и навигацией */
+}

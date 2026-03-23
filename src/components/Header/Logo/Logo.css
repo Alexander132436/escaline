@@ -1,0 +1,19 @@
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none; /* убираем подчеркивание */
+  color: inherit; /* наследуем цвет */
+  
+}
+
+.logo h2 {
+  margin: 0; /* сбрасываем отступы h3 */
+  color: rgb(182, 10, 10);
+  font-family:Verdana, Geneva, Tahoma, sans-serif
+}
+
+.logo img {
+  height: 50px;
+  width: 50px;
+}
