@@ -10,6 +10,7 @@
     border: 1px solid rgba(220, 38, 38, 0.1);
     position: relative;
     overflow: hidden;
+    margin-right: 20px;
 }
 
 .product-card::before {
