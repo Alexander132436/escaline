@@ -1,0 +1,173 @@
+/* components/ProductCard.css */
+.product-card {
+    background: linear-gradient(135deg, #ffffff 0%, #fafafa 100%);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    border: 1px solid rgba(220, 38, 38, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.product-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #dc2626, #1a1a1a);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover::before {
+    transform: scaleX(1);
+}
+
+.product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    border-color: rgba(220, 38, 38, 0.3);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.product-name {
+    font-size: 1.35rem;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #1a1a1a 0%, #dc2626 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0;
+}
+
+.product-grade {
+    font-size: 0.85rem;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    color: #dc2626;
+    background: rgba(220, 38, 38, 0.1);
+    padding: 4px 12px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+}
+
+.card-content {
+    margin: 16px 0;
+}
+
+.product-description {
+    color: #4a5568;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+.product-properties {
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    border-radius: 8px;
+    padding: 16px;
+    border-left: 3px solid #dc2626;
+}
+
+.property-item {
+    margin-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 0.9rem;
+}
+
+.property-item:last-child {
+    margin-bottom: 0;
+}
+
+.property-label {
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    color: #1a1a1a;
+    min-width: 80px;
+}
+
+.property-value {
+    color: #4a5568;
+    font-family: 'Open Sans', sans-serif;
+    flex: 1;
+}
+
+.card-footer {
+    margin-top: 20px;
+    text-align: right;
+}
+
+.details-button {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.details-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(220, 38, 38, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.details-button:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.details-button:hover {
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+}
+
+@media (max-width: 768px) {
+    .product-card {
+        padding: 18px;
+    }
+    
+    .product-name {
+        font-size: 1.2rem;
+    }
+    
+    .property-item {
+        flex-direction: column;
+        gap: 4px;
+    }
+    
+    .property-label {
+        min-width: auto;
+    }
+}
