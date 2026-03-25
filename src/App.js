@@ -1,4 +1,5 @@
 // App.js
+import { useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header/Header';
 import AlloysCatalog from './pages/AlloysCatalog/AlloysCatalog'; 
@@ -11,6 +12,15 @@ import TapePage from './pages/TapePage/TapePage';
 import RodPage from './pages/RodPage/RodPage';
 import './App.css'
 function App() {
+  useEffect(() => {
+    // Принудительно показываем скроллбар всегда
+    document.documentElement.style.overflowY = 'scroll';
+    
+    return () => {
+      // Очищаем при размонтировании компонента (опционально)
+      document.documentElement.style.overflowY = '';
+    };
+  }, []);
   return (
     <BrowserRouter>
       <Header />
