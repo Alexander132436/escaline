@@ -7,19 +7,26 @@ import "./Navigation.css";
 
 export default function Navigation() {
     const [openDropdown, setOpenDropdown] = useState(null);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const dropdownRef = useRef(null);
     const location = useLocation();
+    const mobileMenuRef = useRef(null);
 
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
                 setOpenDropdown(null);
             }
+            // Закрываем мобильное меню при клике вне его
+            if (mobileMenuRef.current && !mobileMenuRef.current.contains(event.target) && isMobileMenuOpen) {
+                setIsMobileMenuOpen(false);
+            }
         };
 
         const handleEscape = (event) => {
             if (event.key === "Escape") {
                 setOpenDropdown(null);
+                setIsMobileMenuOpen(false);
             }
         };
 
@@ -30,22 +37,45 @@ export default function Navigation() {
             document.removeEventListener("mousedown", handleClickOutside);
             document.removeEventListener("keydown", handleEscape);
         };
-    }, []);
+    }, [isMobileMenuOpen]);
+
+    // Закрываем меню при смене маршрута
+    useEffect(() => {
+        setIsMobileMenuOpen(false);
+        setOpenDropdown(null);
+    }, [location]);
 
     const handleCategoryClick = () => {
         setOpenDropdown(null);
+        setIsMobileMenuOpen(false);
     };
 
     const isActive = (path) => {
         return location.pathname === path || location.pathname.startsWith(path + '/');
     };
 
+    const toggleMobileMenu = () => {
+        setIsMobileMenuOpen(!isMobileMenuOpen);
+    };
+
     return (
         <nav className="navigation">
             <div className="nav-wrapper">
-                <ul className="nav-menu">
+                {/* Бургер-кнопка для мобильных */}
+                <button 
+                    className={`burger-menu ${isMobileMenuOpen ? 'active' : ''}`}
+                    onClick={toggleMobileMenu}
+                    aria-label="Меню"
+                >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                {/* Десктопное меню */}
+                <ul className={`nav-menu ${isMobileMenuOpen ? 'mobile-open' : ''}`} ref={mobileMenuRef}>
                     <li>
-                        <Link to="/" className={`nav-link ${isActive('/') ? 'active' : ''}`}>
+                        <Link to="/" className={`nav-link ${isActive('/') ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>
                             ГЛАВНАЯ
                         </Link>
                     </li>
@@ -53,16 +83,24 @@ export default function Navigation() {
                     {/* Дропдаун для продукции */}
                     <li
                         className={`dropdown-container ${isActive('/produktsiya') ? 'active-dropdown' : ''}`}
-                        onMouseEnter={() => setOpenDropdown("products")}
-                        onMouseLeave={() => setOpenDropdown(null)}
+                        onMouseEnter={() => window.innerWidth > 768 && setOpenDropdown("products")}
+                        onMouseLeave={() => window.innerWidth > 768 && setOpenDropdown(null)}
                     >
-                        <Link
-                            to="/produktsiya"
-                            className={`dropdown-trigger ${isActive('/produktsiya') ? 'active' : ''}`}
-                            aria-expanded={openDropdown === "products"}
-                        >
-                            ПРОДУКЦИЯ ▼
-                        </Link>
+                        <div className="dropdown-trigger-wrapper">
+                            <Link
+                                to="/produktsiya"
+                                className={`dropdown-trigger ${isActive('/produktsiya') ? 'active' : ''}`}
+                                onClick={() => window.innerWidth <= 768 && setOpenDropdown(openDropdown === "products" ? null : "products")}
+                            >
+                                ПРОДУКЦИЯ
+                            </Link>
+                            <button 
+                                className="dropdown-arrow"
+                                onClick={() => setOpenDropdown(openDropdown === "products" ? null : "products")}
+                            >
+                                ▼
+                            </button>
+                        </div>
 
                         {openDropdown === "products" && (
                             <ul className="dropdown-menu" ref={dropdownRef}>
@@ -84,16 +122,24 @@ export default function Navigation() {
                     {/* Дропдаун для сплавов */}
                     <li
                         className={`dropdown-container ${isActive('/splavi') ? 'active-dropdown' : ''}`}
-                        onMouseEnter={() => setOpenDropdown("alloys")}
-                        onMouseLeave={() => setOpenDropdown(null)}
+                        onMouseEnter={() => window.innerWidth > 768 && setOpenDropdown("alloys")}
+                        onMouseLeave={() => window.innerWidth > 768 && setOpenDropdown(null)}
                     >
-                        <Link
-                            to="/splavi"
-                            className={`dropdown-trigger ${isActive('/splavi') ? 'active' : ''}`}
-                            aria-expanded={openDropdown === "alloys"}
-                        >
-                            СПЛАВЫ ▼
-                        </Link>
+                        <div className="dropdown-trigger-wrapper">
+                            <Link
+                                to="/splavi"
+                                className={`dropdown-trigger ${isActive('/splavi') ? 'active' : ''}`}
+                                onClick={() => window.innerWidth <= 768 && setOpenDropdown(openDropdown === "alloys" ? null : "alloys")}
+                            >
+                                СПЛАВЫ
+                            </Link>
+                            <button 
+                                className="dropdown-arrow"
+                                onClick={() => setOpenDropdown(openDropdown === "alloys" ? null : "alloys")}
+                            >
+                                ▼
+                            </button>
+                        </div>
 
                         {openDropdown === "alloys" && (
                             <ul className="dropdown-menu" ref={dropdownRef}>
@@ -113,13 +159,13 @@ export default function Navigation() {
                     </li>
 
                     <li>
-                        <Link to="/application" className={isActive('/application') ? 'active' : ''}>
+                        <Link to="/application" className={isActive('/application') ? 'active' : ''} onClick={() => setIsMobileMenuOpen(false)}>
                             ПРИМЕНЕНИЕ
                         </Link>
                     </li>
 
                     <li>
-                        <Link to="/contacts" className={isActive('/contacts') ? 'active' : ''}>
+                        <Link to="/contacts" className={isActive('/contacts') ? 'active' : ''} onClick={() => setIsMobileMenuOpen(false)}>
                             КОНТАКТЫ
                         </Link>
                     </li>
