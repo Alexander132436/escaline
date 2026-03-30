@@ -38,6 +38,8 @@ const AlloysCatalog = () => {
         { id: 'high-resistance', name: 'С высоким электрическим сопротивлением', count: getAlloysData['high-resistance']?.length || 0 },
         { id: 'welding-materials', name: 'Стали и сплавы для сварки', count: getAlloysData['welding-materials']?.length || 0 },
         { id: 'soft-magnetic', name: 'Прецизионные магнитно-мягкие', count: getAlloysData['soft-magnetic']?.length || 0 },
+        { id: 'high-induction', name: 'Магнитно-мягкие с высокой магнитной индукцией', count: getAlloysData['high-induction']?.length || 0 },
+        { id: 'hard-magnetic', name: 'Прецизионные магнитотвердые', count: getAlloysData['hard-magnetic']?.length || 0 },
         { id: 'elastic', name: 'Для упругих элементов', count: getAlloysData['elastic']?.length || 0 },
         { id: 'tclr', name: 'С заданным ТКЛР', count: getAlloysData['tclr']?.length || 0 },
         { id: 'heat-resistant-alloys', name: 'Жаропрочные сплавы', count: getAlloysData['heat-resistant-alloys']?.length || 0 },

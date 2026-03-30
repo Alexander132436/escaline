@@ -39,7 +39,7 @@ const ProductCard = ({ product, type = 'alloy' }) => {
                     
                     <div className="property-item">
                         <span className="property-label">Применение:</span>
-                        <span className="property-value">{product.application}</span>
+                        <span className="property-value">{product.smallApplication}</span>
                     </div>
                     
                     {product.delivery && (

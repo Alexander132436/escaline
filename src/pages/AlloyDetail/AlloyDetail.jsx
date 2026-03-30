@@ -67,7 +67,7 @@ const AlloyDetail = () => {
                     <div className="detail-section">
                         <h2>
                             <span className="section-icon">⚙️</span>
-                            Физико-механические свойства
+                            Физические свойства
                         </h2>
                         <div className="properties-grid">
                             {alloy.properties && alloy.properties.split(',').map((prop, index) => (
@@ -113,26 +113,6 @@ const AlloyDetail = () => {
                         >
                             Связаться с нами
                         </button>
-                    </div>
-                </div>
-                
-                <div className="similar-alloys">
-                    <h3>Похожие сплавы</h3>
-                    <div className="similar-grid">
-                        <div className="similar-card">
-                            <h4>Х15Н60</h4>
-                            
-                            <button onClick={() => navigate('/splavi/high-resistance/2')}>
-                                Подробнее →
-                            </button>
-                        </div>
-                        <div className="similar-card">
-                            <h4>Н80Х20Д</h4>
-                            
-                            <button onClick={() => navigate('/splavi/high-resistance/3')}>
-                                Подробнее →
-                            </button>
-                        </div>
                     </div>
                 </div>
             </div>
