@@ -22,7 +22,7 @@ const ProductCard = ({ product, type = 'alloy' }) => {
             </div>
             
             <div className="card-content">
-                <p className="product-description">{product.description}</p>
+                <p className="product-description">{product.litleDescription}</p>
                 
                 <div className="product-properties">
                     <div className="property-item">

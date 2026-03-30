@@ -45,6 +45,17 @@ const AlloyDetail = () => {
                 <div className="detail-grid">
                     <div className="detail-section">
                         <h2>
+                            <span className="section-icon">📄</span>
+                            Стандарты
+                        </h2>
+                        <div className="composition-card">
+                            <p>{alloy.standart || 'Информация уточняется'}</p>
+                        </div>
+                    </div>
+
+
+                    <div className="detail-section">
+                        <h2>
                             <span className="section-icon">📊</span>
                             Химический состав
                         </h2>
@@ -91,24 +102,7 @@ const AlloyDetail = () => {
                     )}
                 </div>
                 
-                <div className="technical-info">
-                    <h3>Техническая документация</h3>
-                    <div className="docs-grid">
-                        <div className="doc-item">
-                            <span className="doc-icon">📄</span>
-                            <span>ГОСТ 12766.1-90</span>
-                        </div>
-                        <div className="doc-item">
-                            <span className="doc-icon">📄</span>
-                            <span>ТУ 14-1-1234-89</span>
-                        </div>
-                        <div className="doc-item">
-                            <span className="doc-icon">📄</span>
-                            <span>Сертификат качества</span>
-                        </div>
-                    </div>
-                </div>
-                
+
                 <div className="contact-section">
                     <h3>Нужна помощь в выборе?</h3>
                     <p>Наши специалисты помогут подобрать оптимальный сплав для ваших задач</p>
@@ -127,14 +121,14 @@ const AlloyDetail = () => {
                     <div className="similar-grid">
                         <div className="similar-card">
                             <h4>Х15Н60</h4>
-                            <p>Аналог с более низким содержанием никеля</p>
+                            
                             <button onClick={() => navigate('/splavi/high-resistance/2')}>
                                 Подробнее →
                             </button>
                         </div>
                         <div className="similar-card">
                             <h4>Н80Х20Д</h4>
-                            <p>С добавлением меди для улучшения обрабатываемости</p>
+                            
                             <button onClick={() => navigate('/splavi/high-resistance/3')}>
                                 Подробнее →
                             </button>
