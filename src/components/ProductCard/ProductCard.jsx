@@ -27,7 +27,8 @@ const ProductCard = ({ product, type = 'alloy' }) => {
                 <div className="product-properties">
                     <div className="property-item">
                         <span className="property-label">Свойства:</span>
-                        <span className="property-value">{product.properties}</span>
+                        {product.properties ? <span className="property-value">{product.properties}</span> : <span className="property-value">Сведения отсутствуют</span>}
+                        
                     </div>
                     
                     {product.composition && (

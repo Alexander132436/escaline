@@ -69,6 +69,7 @@ const AlloyDetail = () => {
                             <span className="section-icon">⚙️</span>
                             Физические свойства
                         </h2>
+                        
                         <div className="properties-grid">
                             {alloy.properties && alloy.properties.split(',').map((prop, index) => (
                                 <div key={index} className="property-card">
