@@ -1,142 +1,459 @@
-/* pages/ProductPages.css */
-.product-page {
+/* pages/WirePage.css */
+.wire-page {
+    width: 100%;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hero секция с картинкой */
+.wire-hero {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    margin-bottom: 30px;
+    border-radius: 12px;
+}
+
+.wire-hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.5s ease;
+}
+
+.wire-hero:hover .wire-hero-image {
+    transform: scale(1.05);
+}
+
+.wire-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(220,38,38,0.4) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wire-hero-content {
+    text-align: center;
+    padding: 20px;
+    max-width: 90%;
+}
+
+.wire-hero-content h1 {
+    font-size: 2rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    color: white;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    letter-spacing: 1px;
+}
+
+/* Основной контент */
+.wire-content {
     width: 100%;
 }
 
-.product-page-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
-    gap: 15px;
+/* Заголовок страницы */
+.wire-header {
+    margin-bottom: 35px;
 }
 
-.product-page-header h2 {
-    font-size: 1.8rem;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    background: linear-gradient(135deg, #1a1a1a 0%, #dc2626 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin: 0;
-}
-
-.category-description {
-    color: #666;
+.wire-description {
+    color: #4a5568;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
     line-height: 1.6;
-    margin-bottom: 30px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #e0e0e0;
+    margin: 0;
+    padding: 0;
 }
 
-.products-list {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+/* Секции */
+.section {
+    margin-bottom: 40px;
 }
 
-.product-item {
-    background: linear-gradient(135deg, #ffffff 0%, #fafafa 100%);
+.section h2 {
+    font-size: 1.4rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 0 0 20px 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid rgba(220, 38, 38, 0.3);
+    position: relative;
+}
+
+.section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, #dc2626, #1a1a1a);
+}
+
+/* Таблица форм и размеров */
+.forms-table-wrapper {
+    overflow-x: auto;
     border-radius: 12px;
-    padding: 24px;
-    border: 1px solid rgba(220, 38, 38, 0.1);
+    background: white;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.forms-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.forms-table thead {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+}
+
+.forms-table th {
+    padding: 14px 20px;
+    text-align: left;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+.forms-table tbody tr {
+    border-bottom: 1px solid #e2e8f0;
     transition: all 0.3s ease;
 }
 
-.product-item:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    border-color: rgba(220, 38, 38, 0.3);
+.forms-table tbody tr:hover {
+    background: linear-gradient(90deg, rgba(220, 38, 38, 0.05), transparent);
 }
 
-.product-item-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 12px;
-    flex-wrap: wrap;
-    gap: 10px;
+.forms-table td {
+    padding: 14px 20px;
+    color: #2d3748;
+    font-size: 0.95rem;
 }
 
-.product-item-header h3 {
-    font-size: 1.3rem;
+.forms-table .form-name {
+    font-weight: 700;
+    color: #dc2626;
     font-family: 'Montserrat', sans-serif;
-    color: #1a1a1a;
+}
+
+.forms-table .form-size {
+    color: #4a5568;
+    font-weight: 500;
+}
+
+/* Стилизованные списки */
+.styled-list {
+    list-style: none;
+    padding: 0;
     margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 12px;
 }
 
-.product-grade {
-    background: linear-gradient(135deg, #dc2626, #b91c1c);
-    color: white;
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    font-family: 'Montserrat', sans-serif;
-}
-
-.product-description {
-    color: #666;
-    margin-bottom: 15px;
-    line-height: 1.5;
-}
-
-.product-properties {
-    background: #f8f9fa;
+.styled-list li {
+    padding: 12px 16px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    border-left: 3px solid #dc2626;
     border-radius: 8px;
-    padding: 15px;
-    margin: 15px 0;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.95rem;
+    color: #2d3748;
+    transition: all 0.3s ease;
+    position: relative;
 }
 
-.property {
-    margin-bottom: 8px;
+.styled-list li:hover {
+    transform: translateX(5px);
+    background: linear-gradient(135deg, #ffffff 0%, #fff5f5 100%);
+    box-shadow: 0 2px 8px rgba(220, 38, 38, 0.1);
+}
+
+.processing-list li::before {
+    content: '⚙️';
+    margin-right: 10px;
+}
+
+.packaging-list li::before {
+    content: '📦';
+    margin-right: 10px;
+}
+
+/* Таблица сплавов с группировкой */
+.alloys-table-wrapper {
+    overflow-x: auto;
+    border-radius: 12px;
+    background: white;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.alloys-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.alloys-table thead {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+}
+
+.alloys-table th {
+    padding: 14px 20px;
+    text-align: left;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
     font-size: 0.9rem;
-    color: #555;
+    letter-spacing: 0.5px;
+    text-align: center;
 }
 
-.property:last-child {
+.alloys-table tbody tr {
+    border-bottom: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+}
+
+.alloys-table tbody tr:hover {
+    background: linear-gradient(90deg, rgba(220, 38, 38, 0.05), transparent);
+}
+
+.alloys-table td {
+    padding: 16px 20px;
+    vertical-align: top;
+}
+
+.alloys-table .group-name {
+    font-weight: 700;
+    color: #dc2626;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    width: 30%;
+    padding-right: 30px;
+}
+
+.alloys-table .grades-list {
+    width: 70%;
+    padding-left: 20px;
+}
+
+.grades-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+/* Если хотите марки в две колонки, используйте этот класс */
+.grades-container.two-columns {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px 20px;
+}
+
+.grade-link {
+    display: inline-block;
+    color: #2d3748;
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.9rem;
+    padding: 6px 0;
+    transition: all 0.3s ease;
+    position: relative;
+    width: fit-content;
+}
+
+.grade-link::before {
+    content: '→';
+    position: absolute;
+    left: -20px;
+    opacity: 0;
+    transition: all 0.3s ease;
+    color: #dc2626;
+}
+
+.grade-link:hover {
+    color: #dc2626;
+    transform: translateX(5px);
+}
+
+.grade-link:hover::before {
+    opacity: 1;
+    left: -15px;
+}
+
+/* Описание */
+.description-content {
+    background: linear-gradient(135deg, #fef2f2 0%, #ffffff 100%);
+    border-radius: 12px;
+    padding: 25px;
+    border-left: 4px solid #dc2626;
+}
+
+.description-content p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #2d3748;
+    margin-bottom: 15px;
+}
+
+.description-content p:last-child {
     margin-bottom: 0;
 }
 
-.property strong {
-    color: #1a1a1a;
-    font-weight: 600;
-}
-
-.details-button {
-    background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
-    color: white;
-    border: none;
-    padding: 10px 24px;
-    border-radius: 8px;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.details-button:hover {
-    background: linear-gradient(135deg, #dc2626, #b91c1c);
-    transform: translateY(-2px);
-}
-
+/* Адаптивность для планшетов */
 @media (max-width: 768px) {
-    .product-page-header {
-        flex-direction: column;
-        align-items: flex-start;
+    .wire-hero {
+        height: 180px;
+        border-radius: 8px;
     }
     
-    .product-page-header h2 {
-        font-size: 1.5rem;
+    .wire-hero-content h1 {
+        font-size: 1.3rem;
     }
     
-    .product-item-header {
-        flex-direction: column;
+    .wire-description {
+        font-size: 0.9rem;
     }
     
-    .product-grade {
-        align-self: flex-start;
+    .section h2 {
+        font-size: 1.2rem;
+    }
+    
+    /* Таблица форм и размеров */
+    .forms-table th,
+    .forms-table td {
+        padding: 10px 12px;
+        font-size: 0.85rem;
+    }
+    
+    /* Списки */
+    .styled-list {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+    
+    .styled-list li {
+        padding: 10px 14px;
+        font-size: 0.9rem;
+    }
+    
+    /* Таблица сплавов */
+    .alloys-table th {
+        padding: 10px 12px;
+        font-size: 0.85rem;
+    }
+    
+    .alloys-table td {
+        padding: 12px 12px;
+    }
+    
+    .alloys-table .group-name {
+        font-size: 0.85rem;
+        width: 35%;
+        padding-right: 15px;
+    }
+    
+    .alloys-table .grades-list {
+        width: 65%;
+        padding-left: 10px;
+    }
+    
+    .grade-link {
+        font-size: 0.85rem;
+        padding: 4px 0;
+    }
+    
+    .grades-container {
+        gap: 8px;
+    }
+    
+    .grades-container.two-columns {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+    
+    /* Описание */
+    .description-content {
+        padding: 20px;
+    }
+    
+    .description-content p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Для мобильных устройств */
+@media (max-width: 640px) {
+    /* Таблица сплавов - делаем скроллящейся */
+    .alloys-table-wrapper {
+        overflow-x: auto;
+    }
+    
+    .alloys-table {
+        min-width: 550px;
+    }
+}
+
+/* Для маленьких телефонов */
+@media (max-width: 480px) {
+    .wire-hero {
+        height: 150px;
+    }
+    
+    .wire-hero-content h1 {
+        font-size: 1rem;
+    }
+    
+    .section h2 {
+        font-size: 1.1rem;
+    }
+    
+    /* Таблица форм и размеров */
+    .forms-table th,
+    .forms-table td {
+        padding: 8px 10px;
+        font-size: 0.8rem;
+    }
+    
+    /* Таблица сплавов */
+    .alloys-table th {
+        padding: 8px 10px;
+        font-size: 0.8rem;
+    }
+    
+    .alloys-table td {
+        padding: 10px 10px;
+    }
+    
+    .alloys-table .group-name {
+        font-size: 0.8rem;
+    }
+    
+    .grade-link {
+        font-size: 0.8rem;
     }
 }

@@ -11,6 +11,7 @@ import WirePage from './pages/WirePage/WirePage';
 import TapePage from './pages/TapePage/TapePage';
 import RodPage from './pages/RodPage/RodPage';
 import './App.css'
+import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 function App() {
   useEffect(() => {
     // Принудительно показываем скроллбар всегда
@@ -23,6 +24,7 @@ function App() {
   }, []);
   return (
     <BrowserRouter>
+    <ScrollToTop />
       <Header />
       
       <Routes>
