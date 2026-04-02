@@ -71,6 +71,10 @@ const AlloyDetail = () => {
                         </h2>
                         
                         <div className="properties-grid">
+                            {!alloy.properties && 
+                            (<div className="composition-card">
+                            <p>Сведения отсутствуют</p>
+                        </div>)}
                             {alloy.properties && alloy.properties.split(',').map((prop, index) => (
                                 <div key={index} className="property-card">
                                     <span className="property-dot"></span>
