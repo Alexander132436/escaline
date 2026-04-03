@@ -1,12 +1,12 @@
 
 import phone from '../../../images/pictures/phone.svg'
 import email from '../../../images/pictures/email.svg'
-import './Contacts.css'
+import './Contact.css'
 
-export default function Contacts()
+export default function Contact()
 {
     return(
-        <div className="contacts-container">
+        <div className="contact-container">
             <a href="tel:+7(499)682-01-68">
                 <img src={phone} alt='phone'/>+7(499)682-01-68
             </a>

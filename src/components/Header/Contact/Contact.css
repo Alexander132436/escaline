@@ -1,16 +1,16 @@
-.contacts-container{
+.contact-container{
     display: flex;
     gap: 30px;
 }
 
-.contacts-container a{
+.contact-container a{
     display: flex;
     align-items: center; /* Выравнивание иконки и текста по вертикали */
     text-decoration: none; /* Убираем подчеркивание ссылки */
     gap: 5px; /* Расстояние между иконкой и текстом */
 }
 
-.contacts-container img{
+.contact-container img{
     height: 30px;
     width: 30px;
 }

@@ -12,6 +12,7 @@ import TapePage from './pages/TapePage/TapePage';
 import RodPage from './pages/RodPage/RodPage';
 import Home from './pages/Home/Home';
 import Application from './pages/Application/Application';
+import Contacts from './pages/Contacts/Contacts';
 import './App.css'
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 function App() {
@@ -49,7 +50,7 @@ function App() {
           <Route path="/splavi/:categoryId/:alloyId" element={<AlloyDetail />} />
         
         <Route path="/application" element={<Application />} />
-        {/* <Route path="/contacts" element={<Contacts />} /> */}
+        <Route path="/contacts" element={<Contacts />} />
       </Routes>
     </BrowserRouter>
   );

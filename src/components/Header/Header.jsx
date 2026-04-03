@@ -1,5 +1,5 @@
 // Header.jsx
-import Contacts from "./Contacts/Contacts";
+import Contact from "./Contact/Contact";
 import Logo from "./Logo/Logo";
 import './Header.css'
 import Navigation from "./Navigation/Navigation";
@@ -11,7 +11,7 @@ export default function Header()
             <div className="header-wrapper">
                 <div className="header-top">
                     <Logo />
-                    <Contacts />
+                    <Contact />
                 </div> 
                 <Navigation />
             </div>
