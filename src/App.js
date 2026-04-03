@@ -10,6 +10,8 @@ import ProductsOverview from './pages/ProductsOverview/ProductsOverview';
 import WirePage from './pages/WirePage/WirePage';
 import TapePage from './pages/TapePage/TapePage';
 import RodPage from './pages/RodPage/RodPage';
+import Home from './pages/Home/Home';
+import Application from './pages/Application/Application';
 import './App.css'
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 function App() {
@@ -28,7 +30,7 @@ function App() {
       <Header />
       
       <Routes>
-        {/* <Route path="/" element={<Home />} /> */}
+        <Route path="/" element={<Home />} />
         
         {/* Маршруты для продукции - используем вложенные маршруты */}
         <Route path="/produktsiya" element={<ProductsCatalog />}>
@@ -46,7 +48,7 @@ function App() {
           <Route path="/splavi/:categoryId" element={<AlloysCatalog />} />
           <Route path="/splavi/:categoryId/:alloyId" element={<AlloyDetail />} />
         
-        {/* <Route path="/application" element={<Application />} /> */}
+        <Route path="/application" element={<Application />} />
         {/* <Route path="/contacts" element={<Contacts />} /> */}
       </Routes>
     </BrowserRouter>

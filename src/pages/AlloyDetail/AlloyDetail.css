@@ -103,7 +103,7 @@
     margin-bottom: 40px;
 }
 
-.detail-section {
+.alloy-detail-section {
     background: linear-gradient(135deg, #fafafa 0%, #ffffff 100%);
     border-radius: 16px;
     padding: 25px;
@@ -111,13 +111,13 @@
     border: 1px solid rgba(220, 38, 38, 0.1);
 }
 
-.detail-section:hover {
+.alloy-detail-section:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
     border-color: rgba(220, 38, 38, 0.3);
 }
 
-.detail-section h2 {
+.alloy-detail-section h2 {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.4rem;
     color: #1a1a1a;

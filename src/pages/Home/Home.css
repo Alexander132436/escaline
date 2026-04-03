@@ -1,0 +1,250 @@
+/* pages/Home.css */
+.home-page {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* Hero секция */
+.hero-section {
+    position: relative;
+    width: 100%;
+    min-height: 550px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 60px;
+}
+
+.hero-background {
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 1090px;
+    height: calc(100% + 150px);
+    z-index: 0;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.hero-bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(1.05) contrast(1.1) saturate(1.2);
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0,0,0,0.4) 0%, rgba(220,38,38,0.15) 100%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 1090px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    width: 100%;
+}
+
+.hero-text {
+    max-width: 650px;
+    background: rgba(0,0,0,0.45);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 35px;
+    border-left: 4px solid #dc2626;
+    animation: fadeInUp 0.8s ease;
+    margin-left: 20px;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-title {
+    font-size: 2.2rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero-title .highlight {
+    color:#b85f5f;
+    position: relative;
+}
+
+.hero-description {
+    color: #e0e0e0;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 18px;
+}
+
+.hero-description:last-child {
+    margin-bottom: 0;
+}
+
+/* Секция преимуществ */
+
+.advantages-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    padding: 60px 20px;
+    
+}
+
+.advantages-container {
+    max-width: 1090px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    text-align: center;
+    color: #1a1a1a;
+    margin-bottom: 40px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, #dc2626, #1a1a1a);
+    border-radius: 2px;
+}
+
+.advantages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 30px;
+}
+
+.advantage-card {
+    background: white;
+    border-radius: 16px;
+    padding: 30px 25px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border: 1px solid rgba(220, 38, 38, 0.1);
+}
+
+.advantage-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+    border-color: rgba(220, 38, 38, 0.3);
+}
+
+.advantage-icon {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+}
+
+.advantage-card h3 {
+    font-size: 1.15rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+}
+
+.advantage-card p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .hero-section {
+        min-height: 480px;
+        margin-bottom: 40px;
+    }
+    
+    .hero-background {
+        top: -50px;
+        height: calc(100% + 100px);
+    }
+    
+    .hero-content {
+        padding: 40px 20px;
+    }
+    
+    .hero-text {
+        padding: 25px;
+        max-width: 100%;
+    }
+    
+    .hero-title {
+        font-size: 1.6rem;
+    }
+    
+    .hero-description {
+        font-size: 0.85rem;
+    }
+    
+    .advantages-section {
+        padding: 40px 15px;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+    }
+    
+    .advantages-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .advantage-card {
+        padding: 25px;
+    }
+    
+    .advantage-card h3 {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 1.3rem;
+    }
+    
+    .hero-text {
+        padding: 20px;
+    }
+    
+    .section-title {
+        font-size: 1.3rem;
+    }
+    
+    .advantage-icon {
+        font-size: 2.2rem;
+    }
+}

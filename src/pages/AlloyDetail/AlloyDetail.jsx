@@ -43,7 +43,7 @@ const AlloyDetail = () => {
                 </div>
                 
                 <div className="detail-grid">
-                    <div className="detail-section">
+                    <div className="alloy-detail-section">
                         <h2>
                             <span className="section-icon">📄</span>
                             Стандарты
@@ -53,8 +53,7 @@ const AlloyDetail = () => {
                         </div>
                     </div>
 
-
-                    <div className="detail-section">
+                    <div className="alloy-detail-section">
                         <h2>
                             <span className="section-icon">📊</span>
                             Химический состав
@@ -64,12 +63,11 @@ const AlloyDetail = () => {
                         </div>
                     </div>
                     
-                    <div className="detail-section">
+                    <div className="alloy-detail-section">
                         <h2>
                             <span className="section-icon">⚙️</span>
                             Физические свойства
                         </h2>
-                        
                         <div className="properties-grid">
                             {!alloy.properties && 
                             (<div className="composition-card">
@@ -84,7 +82,7 @@ const AlloyDetail = () => {
                         </div>
                     </div>
                     
-                    <div className="detail-section">
+                    <div className="alloy-detail-section">
                         <h2>
                             <span className="section-icon">🏭</span>
                             Области применения
@@ -95,7 +93,7 @@ const AlloyDetail = () => {
                     </div>
                     
                     {alloy.delivery && (
-                        <div className="detail-section">
+                        <div className="alloy-detail-section">
                             <h2>
                                 <span className="section-icon">📦</span>
                                 Формы поставки
