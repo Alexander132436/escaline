@@ -1,104 +1,338 @@
 /* pages/ProductsOverview.css */
-.products-overview h2 {
-    font-size: 1.8rem;
+.overview-page {
+    width: 100%;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hero секция с картинкой */
+.overview-hero {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    margin-bottom: 30px;
+    border-radius: 12px;
+}
+
+.overview-hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.5s ease;
+}
+
+.overview-hero:hover .overview-hero-image {
+    transform: scale(1.05);
+}
+
+.overview-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(220,38,38,0.4) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.overview-hero-content {
+    text-align: center;
+    padding: 20px;
+    max-width: 90%;
+}
+
+.overview-hero-content h1 {
+    font-size: 2rem;
     font-family: 'Montserrat', sans-serif;
-    color: #1a1a1a;
-    margin-bottom: 15px;
+    font-weight: 800;
+    color: white;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    letter-spacing: 1px;
+}
+
+/* Основной контент */
+.overview-content {
+    width: 100%;
+}
+
+/* Заголовок страницы */
+.overview-header {
+    margin-bottom: 25px;
 }
 
 .overview-description {
-    color: #666;
+    color: #4a5568;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
     line-height: 1.6;
-    margin-bottom: 40px;
-}
-
-.categories-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    margin-bottom: 50px;
-}
-
-.category-card {
-    background: linear-gradient(135deg, #ffffff 0%, #fafafa 100%);
-    border-radius: 16px;
-    padding: 30px;
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border-top: 4px solid;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-}
-
-.category-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 24px rgba(0,0,0,0.1);
-}
-
-.category-icon-large {
-    font-size: 3rem;
-    margin-bottom: 20px;
-}
-
-.category-card h3 {
-    font-size: 1.5rem;
-    font-family: 'Montserrat', sans-serif;
-    color: #1a1a1a;
-    margin-bottom: 10px;
-}
-
-.category-card p {
-    color: #666;
-    line-height: 1.5;
-    margin-bottom: 20px;
-}
-
-.category-button {
-    background: none;
-    border: none;
-    color: #dc2626;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.category-button:hover {
-    transform: translateX(5px);
-    color: #b91c1c;
-}
-
-.info-section {
-    background: linear-gradient(135deg, #f8f9fa, #ffffff);
-    border-radius: 12px;
-    padding: 30px;
-    border-left: 4px solid #dc2626;
-}
-
-.info-section h3 {
-    font-size: 1.3rem;
-    font-family: 'Montserrat', sans-serif;
-    color: #1a1a1a;
-    margin-bottom: 20px;
-}
-
-.info-section ul {
-    list-style: none;
+    margin: 0;
     padding: 0;
 }
 
-.info-section li {
-    padding: 8px 0;
-    color: #555;
-    font-size: 1rem;
+/* Информационный блок */
+.info-box {
+    background: linear-gradient(135deg, #fef2f2 0%, #ffffff 100%);
+    border-radius: 12px;
+    padding: 20px 25px;
+    margin-bottom: 40px;
+    border-left: 4px solid #dc2626;
 }
 
+.info-text {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #2d3748;
+    margin: 0;
+}
+
+.info-text strong {
+    color: #dc2626;
+    font-weight: 700;
+}
+
+/* Секции */
+.section {
+    margin-bottom: 40px;
+}
+
+.section h2 {
+    font-size: 1.4rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 0 0 20px 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid rgba(220, 38, 38, 0.3);
+    position: relative;
+}
+
+.section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, #dc2626, #1a1a1a);
+}
+
+/* Таблицы продукции */
+.product-table-wrapper {
+    overflow-x: auto;
+    border-radius: 12px;
+    background: white;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.product-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.product-table thead {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+}
+
+.product-table th {
+    padding: 14px 16px;
+    text-align: center;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.product-table td {
+    padding: 12px 16px;
+    text-align: center;
+    color: #2d3748;
+    font-size: 0.9rem;
+    border: 1px solid #e2e8f0;
+    vertical-align: middle;
+}
+
+.product-table tbody tr:hover {
+    background: linear-gradient(90deg, rgba(220, 38, 38, 0.05), transparent);
+}
+
+/* Ячейка с изображением */
+.product-image-cell {
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    text-align: center !important;
+    min-width: 140px;
+}
+
+.product-image {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto 8px auto;
+}
+
+.product-name {
+    font-weight: 700;
+    color: #dc2626;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+/* Блок стандартов */
+.standards-box {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.standards-text {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #e0e0e0;
+    margin: 0;
+}
+
+.standards-text strong {
+    color: #dc2626;
+    font-weight: 700;
+}
+
+/* Сетка ссылок на сплавы */
+.alloys-links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 12px;
+}
+
+.alloy-link {
+    display: block;
+    padding: 12px 16px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    border-left: 3px solid #dc2626;
+    border-radius: 8px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.95rem;
+    color: #2d3748;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.alloy-link:hover {
+    transform: translateX(5px);
+    background: linear-gradient(135deg, #ffffff 0%, #fff5f5 100%);
+    box-shadow: 0 2px 8px rgba(220, 38, 38, 0.1);
+    color: #dc2626;
+}
+
+/* Адаптивность */
 @media (max-width: 768px) {
-    .categories-grid {
-        grid-template-columns: 1fr;
+    .overview-hero {
+        height: 180px;
+        border-radius: 8px;
     }
     
-    .products-overview h2 {
-        font-size: 1.5rem;
+    .overview-hero-content h1 {
+        font-size: 1.3rem;
+    }
+    
+    .overview-description {
+        font-size: 0.9rem;
+    }
+    
+    .info-text {
+        font-size: 0.9rem;
+    }
+    
+    .section h2 {
+        font-size: 1.2rem;
+    }
+    
+    .product-table th,
+    .product-table td {
+        padding: 8px 10px;
+        font-size: 0.75rem;
+    }
+    
+    .product-image {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .product-name {
+        font-size: 0.75rem;
+    }
+    
+    .product-image-cell {
+        min-width: 100px;
+    }
+    
+    .standards-text {
+        font-size: 0.85rem;
+    }
+    
+    .alloys-links-grid {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+    
+    .alloy-link {
+        padding: 10px 14px;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .overview-hero {
+        height: 150px;
+    }
+    
+    .overview-hero-content h1 {
+        font-size: 1rem;
+    }
+    
+    .section h2 {
+        font-size: 1rem;
+    }
+    
+    .product-table th,
+    .product-table td {
+        padding: 6px 8px;
+        font-size: 0.7rem;
+    }
+    
+    .product-image {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .product-name {
+        font-size: 0.7rem;
+    }
+    
+    .product-image-cell {
+        min-width: 80px;
     }
 }
